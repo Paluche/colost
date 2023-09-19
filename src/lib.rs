@@ -212,6 +212,7 @@ impl ColoredString {
 
         for color_marker in self.code_markers.iter() {
             if ret.is_empty() {
+                ret += &self.raw[index..color_marker.index];
                 ret += ANSI_ESCAPE_START;
             } else if index != color_marker.index {
                 ret += ANSI_ESCAPE_END;
